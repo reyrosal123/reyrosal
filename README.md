@@ -3,7 +3,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Rey Rosal — GoHighLevel Expert & Automation Specialist</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<!-- Favicon: inline SVG "RR" with gradient — no external file needed -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23f59e0b'/><stop offset='50%25' stop-color='%23ef4444'/><stop offset='100%25' stop-color='%238b5cf6'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='url(%23g)'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='26' fill='white'>RR</text></svg>" />
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root {
@@ -244,6 +248,7 @@
     box-shadow: 0 40px 80px rgba(245, 158, 11, 0.3);
     position: relative;
     animation: float 6s ease-in-out infinite;
+    overflow: hidden;
   }
 
   @keyframes float {
@@ -566,18 +571,9 @@
   }
 
   /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--dark);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--orange);
-    border-radius: 4px;
-  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 4px; }
 </style>
 </head>
 <body>
@@ -590,39 +586,40 @@
         <li><a href="#portfolio" class="nav-link">Work</a></li>
         <li><a href="#stats" class="nav-link">Stats</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
-<li><a href="mailto:rosalrey143@gmail.com" class="cta-button">Get Started</a></li>      </ul>
+        <li><a href="mailto:rosalrey143@gmail.com" class="cta-button">Get Started</a></li>
+      </ul>
     </div>
   </nav>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-container">
-    <div>
-      <div class="hero-badge">
-        <i class="fas fa-circle-check"></i>
-        Available Now
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-container">
+      <div>
+        <div class="hero-badge">
+          <i class="fas fa-circle-check"></i>
+          Available Now
+        </div>
+        <h1 class="hero-title">GoHighLevel Expert<br>Automation Specialist</h1>
+        <p class="hero-subtitle">
+          I build conversion-focused GHL funnels, automated workflows, and client systems 
+          that scales your business without the technical complexity.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">Start Your Project</a>
+          <a href="#portfolio" class="btn-secondary">View My Work</a>
+        </div>
       </div>
-      <h1 class="hero-title">GoHighLevel Expert<br>Automation Specialist</h1>
-      <p class="hero-subtitle">
-        I build conversion-focused GHL funnels, automated workflows, and client systems 
-        that scales your business without the technical complexity.
-      </p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn-primary">Start Your Project</a>
-        <a href="#portfolio" class="btn-secondary">View My Work</a>
+      <div class="hero-image">
+        <div class="hero-avatar">
+          <img 
+            src="https://raw.githubusercontent.com/reyrosal123/reyrosal/930fd61035b6461478c04e118419ae3265e82847/image.png" 
+            alt="Rey Rosal" 
+            style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
+          />
+        </div>
       </div>
     </div>
-    <div class="hero-image">
-      <div class="hero-avatar">
-        <img 
-          src="https://raw.githubusercontent.com/reyrosal123/reyrosal/930fd61035b6461478c04e118419ae3265e82847/image.png" 
-          alt="Rey Rosal" 
-          style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;"
-        />
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- Services -->
   <section id="services" class="section reveal">
@@ -634,9 +631,7 @@
       </div>
       <div class="services-grid">
         <div class="service-card reveal">
-          <div class="service-icon">
-            <i class="fas fa-rocket"></i>
-          </div>
+          <div class="service-icon"><i class="fas fa-rocket"></i></div>
           <h3>GHL Funnel Systems</h3>
           <p>Complete funnel builds including landing pages, upsells, order forms, and payment integrations that turn traffic into revenue.</p>
           <div class="service-tags">
@@ -646,9 +641,7 @@
           </div>
         </div>
         <div class="service-card reveal">
-          <div class="service-icon">
-            <i class="fas fa-cogs"></i>
-          </div>
+          <div class="service-icon"><i class="fas fa-cogs"></i></div>
           <h3>Workflow Automation</h3>
           <p>Smart automations with GHL, n8n, and Pabbly Connect. SMS sequences, email nurturing, and multi-platform integrations.</p>
           <div class="service-tags">
@@ -658,9 +651,7 @@
           </div>
         </div>
         <div class="service-card reveal">
-          <div class="service-icon">
-            <i class="fas fa-globe"></i>
-          </div>
+          <div class="service-icon"><i class="fas fa-globe"></i></div>
           <h3>Client Portals</h3>
           <p>SuiteDash and Lawcus implementations for seamless client onboarding, document management, and communication hubs.</p>
           <div class="service-tags">
@@ -683,9 +674,7 @@
       </div>
       <div class="portfolio-grid">
         <div class="portfolio-card reveal">
-          <div class="portfolio-image">
-            <i class="fas fa-dumbbell"></i>
-          </div>
+          <div class="portfolio-image"><i class="fas fa-dumbbell"></i></div>
           <div class="portfolio-content">
             <div class="portfolio-type">GHL Sales Funnel</div>
             <h3>Fitness Coaching Funnel</h3>
@@ -693,9 +682,7 @@
           </div>
         </div>
         <div class="portfolio-card reveal">
-          <div class="portfolio-image">
-            <i class="fas fa-balance-scale"></i>
-          </div>
+          <div class="portfolio-image"><i class="fas fa-balance-scale"></i></div>
           <div class="portfolio-content">
             <div class="portfolio-type">Lawcus Portal</div>
             <h3>Law Firm Client Portal</h3>
@@ -703,9 +690,7 @@
           </div>
         </div>
         <div class="portfolio-card reveal">
-          <div class="portfolio-image">
-            <i class="fas fa-home"></i>
-          </div>
+          <div class="portfolio-image"><i class="fas fa-home"></i></div>
           <div class="portfolio-content">
             <div class="portfolio-type">WordPress + GHL</div>
             <h3>Real Estate Lead System</h3>
@@ -751,27 +736,21 @@
         </div>
         <div class="contact-links">
           <a href="mailto:rosalrey143@gmail.com" class="contact-link">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
             <div class="contact-info">
               <h4>Email Me</h4>
               <p>rosalrey143@gmail.com</p>
             </div>
           </a>
           <a href="tel:09533881141" class="contact-link">
-            <div class="contact-icon">
-              <i class="fas fa-phone"></i>
-            </div>
+            <div class="contact-icon"><i class="fas fa-phone"></i></div>
             <div class="contact-info">
               <h4>Phone/WhatsApp</h4>
               <p>+63 953 3881 141</p>
             </div>
           </a>
           <a href="https://github.com/reyrosal" class="contact-link" target="_blank">
-            <div class="contact-icon">
-              <i class="fab fa-github"></i>
-            </div>
+            <div class="contact-icon"><i class="fab fa-github"></i></div>
             <div class="contact-info">
               <h4>GitHub</h4>
               <p>github.com/reyrosal</p>
@@ -789,37 +768,21 @@
   </footer>
 
   <script>
-    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
-
-    // Scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('active');
       });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    document.querySelectorAll('.reveal').forEach(el => {
-      observer.observe(el);
-    });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
