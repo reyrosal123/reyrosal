@@ -61,11 +61,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);ov
 
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;align-items:center;padding:100px 1.5rem 60px;position:relative;overflow:hidden;}
-.hero-glow-1{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.13) 0%,transparent 70%);top:-150px;left:-150px;pointer-events:none;animation:driftA 12s ease-in-out infinite;}
-.hero-glow-2{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.11) 0%,transparent 70%);bottom:-100px;right:-100px;pointer-events:none;animation:driftB 15s ease-in-out infinite;}
+.hero-bg-img{position:absolute;inset:0;z-index:0;background-image:url('https://github.com/reyrosal123/myportfolio/blob/main/hero%20image.png?raw=true');background-size:cover;background-position:center center;background-repeat:no-repeat;transform:scale(1.04);animation:heroZoom 18s ease-in-out infinite alternate;}
+@keyframes heroZoom{0%{transform:scale(1.04);}100%{transform:scale(1.12);}}
+.hero-bg-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(8,8,16,.93) 0%,rgba(8,8,16,.68) 50%,rgba(8,8,16,.88) 100%);}
+.hero-bg-vignette{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 70% 100% at 20% 50%,rgba(245,158,11,.07) 0%,transparent 70%);}
+.hero-bg-scanlines{position:absolute;inset:0;z-index:1;background-image:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;}
+.hero-glow-1{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,11,.10) 0%,transparent 70%);top:-150px;left:-150px;pointer-events:none;animation:driftA 12s ease-in-out infinite;z-index:2;}
+.hero-glow-2{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.08) 0%,transparent 70%);bottom:-100px;right:-100px;pointer-events:none;animation:driftB 15s ease-in-out infinite;z-index:2;}
 @keyframes driftA{0%,100%{transform:translate(0,0);}50%{transform:translate(40px,30px);}}
 @keyframes driftB{0%,100%{transform:translate(0,0);}50%{transform:translate(-30px,-20px);}}
-.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 360px;gap:4rem;align-items:center;position:relative;z-index:2;}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 360px;gap:4rem;align-items:center;position:relative;z-index:3;}
 
 /* ── HERO TEXT ANIMATION ── */
 .hero-content{opacity:0;animation:heroSlideIn .9s cubic-bezier(.22,1,.36,1) .2s forwards;}
@@ -308,6 +313,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);ov
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-bg-vignette"></div>
+  <div class="hero-bg-scanlines"></div>
   <div class="hero-glow-1"></div>
   <div class="hero-glow-2"></div>
   <div class="hero-inner">
