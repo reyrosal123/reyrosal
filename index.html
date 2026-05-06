@@ -148,15 +148,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);ov
 /* ── PORTFOLIO ── */
 .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
 .port-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s,border-color .3s;}
-.port-card:hover{transform:translateY(-8px) scale(1.015);box-shadow:0 32px 56px rgba(0,0,0,.45);border-color:rgba(245,158,11,.22);}
-.port-thumb{height:155px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;position:relative;background:linear-gradient(135deg,#12121f 0%,#1a1a30 100%);overflow:hidden;}
-.port-thumb i{position:relative;z-index:1;transition:transform .4s cubic-bezier(.34,1.56,.64,1);}
-.port-card:hover .port-thumb i{transform:scale(1.3) rotate(-8deg);}
-.port-thumb-overlay{position:absolute;inset:0;background:var(--grad);opacity:.07;transition:opacity .3s;}
-.port-card:hover .port-thumb-overlay{opacity:.14;}
-.port-thumb-shine{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.05) 0%,transparent 60%);transform:translateX(-100%);transition:transform .5s;}
+.port-card:hover{transform:translateY(-8px) scale(1.015);box-shadow:0 32px 56px rgba(0,0,0,.5);border-color:rgba(245,158,11,.22);}
+.port-thumb{height:200px;position:relative;overflow:hidden;background:#12121f;}
+.port-thumb-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s cubic-bezier(.22,1,.36,1);}
+.port-card:hover .port-thumb-img{transform:scale(1.1);}
+.port-thumb-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,16,.1) 0%,rgba(8,8,16,.75) 100%);z-index:1;transition:opacity .3s;}
+.port-card:hover .port-thumb-overlay{opacity:.85;}
+.port-thumb-shine{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.07) 0%,transparent 60%);transform:translateX(-100%);transition:transform .5s;z-index:2;}
 .port-card:hover .port-thumb-shine{transform:translateX(100%);}
-.port-body{padding:1.5rem;}
+.port-thumb-result{position:absolute;bottom:.85rem;left:1rem;z-index:3;background:rgba(8,8,16,.75);backdrop-filter:blur(10px);border:1px solid rgba(245,158,11,.3);color:var(--amber);font-size:.73rem;font-weight:600;padding:.28rem .85rem;border-radius:100px;display:flex;align-items:center;gap:.4rem;transition:background .3s,border-color .3s;}
+.port-card:hover .port-thumb-result{background:rgba(245,158,11,.15);border-color:rgba(245,158,11,.55);}
+.port-body{padding:1.4rem 1.5rem 1.6rem;}
 .port-badge{display:inline-block;background:rgba(245,158,11,.1);color:var(--amber);font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:.22rem .8rem;border-radius:100px;margin-bottom:.85rem;border:1px solid rgba(245,158,11,.2);white-space:nowrap;}
 .port-body h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.55rem;color:var(--white);line-height:1.35;}
 .port-body p{color:var(--muted);font-size:.86rem;line-height:1.7;}
@@ -232,6 +234,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);ov
 .back-top.show{opacity:1;transform:translateY(0);}
 .back-top:hover{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.3);transform:translateY(-4px);}
 
+/* ── 3D CARD TILT ── */
+.tilt-card{transform-style:preserve-3d;perspective:1000px;will-change:transform;}
+.tilt-card .tilt-inner{transform-style:preserve-3d;transition:transform .1s ease-out;}
+.tilt-shine{position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--sx,50%) var(--sy,50%),rgba(255,255,255,.13) 0%,transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none;z-index:10;}
+.tilt-card:hover .tilt-shine{opacity:1;}
+.tilt-depth{transform:translateZ(30px);display:block;}
+.tilt-depth-sm{transform:translateZ(18px);display:block;}
+.tilt-depth-xs{transform:translateZ(10px);}
+
 /* SKILL BARS (bonus section) */
 .skills-section{background:var(--surface);}
 .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
@@ -297,7 +308,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);ov
 
 <nav class="nav" id="mainNav">
   <div class="nav-inner">
-    <a href="#" class="logo">ReyRosal</a>
+    <a href="#" class="logo">RR</a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#portfolio">Work</a></li>
@@ -372,40 +383,43 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);ov
       <p class="section-desc">End-to-end solutions for agencies and businesses using GoHighLevel and modern automation tools.</p>
     </div>
     <div class="services-grid">
-      <div class="svc-card reveal">
+      <div class="svc-card reveal tilt-card">
+        <div class="tilt-shine"></div>
         <div class="svc-img-wrap">
           <img src="https://github.com/reyrosal123/myportfolio/blob/main/funnel%20systems.jpeg?raw=true" alt="GHL Funnel Systems" class="svc-img"/>
           <div class="svc-img-overlay"></div>
-          <div class="svc-img-badge"><i class="fas fa-rocket"></i> Funnel Systems</div>
+          <div class="svc-img-badge tilt-depth-xs"><i class="fas fa-rocket"></i> Funnel Systems</div>
         </div>
         <div class="svc-body">
-          <h3>GHL Funnel Systems</h3>
+          <h3 class="tilt-depth-sm">GHL Funnel Systems</h3>
           <p>Complete funnel builds — landing pages, upsells, order forms, and payment integrations that turn traffic into revenue.</p>
-          <div class="tags"><span class="tag">Sales Funnels</span><span class="tag">A/B Testing</span><span class="tag">Stripe</span></div>
+          <div class="tags tilt-depth-xs"><span class="tag">Sales Funnels</span><span class="tag">A/B Testing</span><span class="tag">Stripe</span></div>
         </div>
       </div>
-      <div class="svc-card reveal">
+      <div class="svc-card reveal tilt-card">
+        <div class="tilt-shine"></div>
         <div class="svc-img-wrap">
           <img src="https://github.com/reyrosal123/myportfolio/blob/main/workflow%20automations.jpg?raw=true" alt="Workflow Automation" class="svc-img"/>
           <div class="svc-img-overlay"></div>
-          <div class="svc-img-badge"><i class="fas fa-cogs"></i> Automation</div>
+          <div class="svc-img-badge tilt-depth-xs"><i class="fas fa-cogs"></i> Automation</div>
         </div>
         <div class="svc-body">
-          <h3>Workflow Automation</h3>
+          <h3 class="tilt-depth-sm">Workflow Automation</h3>
           <p>Smart automations with GHL, n8n, and Pabbly Connect — SMS sequences, email nurturing, and multi-platform integrations.</p>
-          <div class="tags"><span class="tag">n8n</span><span class="tag">Pabbly</span><span class="tag">Lead Routing</span></div>
+          <div class="tags tilt-depth-xs"><span class="tag">n8n</span><span class="tag">Pabbly</span><span class="tag">Lead Routing</span></div>
         </div>
       </div>
-      <div class="svc-card reveal">
+      <div class="svc-card reveal tilt-card">
+        <div class="tilt-shine"></div>
         <div class="svc-img-wrap">
           <img src="https://github.com/reyrosal123/myportfolio/blob/main/client%20portal.jpg?raw=true" alt="Client Portals" class="svc-img"/>
           <div class="svc-img-overlay"></div>
-          <div class="svc-img-badge"><i class="fas fa-globe"></i> Client Portals</div>
+          <div class="svc-img-badge tilt-depth-xs"><i class="fas fa-globe"></i> Client Portals</div>
         </div>
         <div class="svc-body">
-          <h3>Client Portals</h3>
+          <h3 class="tilt-depth-sm">Client Portals</h3>
           <p>SuiteDash and Lawcus implementations for seamless onboarding, document management, and client communication hubs.</p>
-          <div class="tags"><span class="tag">SuiteDash</span><span class="tag">Lawcus CRM</span><span class="tag">White Label</span></div>
+          <div class="tags tilt-depth-xs"><span class="tag">SuiteDash</span><span class="tag">Lawcus CRM</span><span class="tag">White Label</span></div>
         </div>
       </div>
     </div>
@@ -421,27 +435,45 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);ov
       <p class="section-desc">Recent work for agencies, coaches, and professional services across multiple industries.</p>
     </div>
     <div class="portfolio-grid">
-      <div class="port-card reveal">
-        <div class="port-thumb"><i class="fas fa-dumbbell"></i><div class="port-thumb-overlay"></div><div class="port-thumb-shine"></div></div>
+      <div class="port-card reveal tilt-card">
+        <div class="tilt-shine"></div>
+        <div class="port-thumb">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&fit=crop" alt="Fitness Coaching Funnel" class="port-thumb-img"/>
+          <div class="port-thumb-overlay"></div>
+          <div class="port-thumb-shine"></div>
+          <div class="port-thumb-result tilt-depth-xs"><i class="fas fa-chart-line"></i> 247 leads / month</div>
+        </div>
         <div class="port-body">
           <div class="port-badge">GHL Sales Funnel</div>
-          <h3>Fitness Coaching Funnel</h3>
+          <h3 class="tilt-depth-sm">Fitness Coaching Funnel</h3>
           <p>Complete GHL funnel with quiz, VSL, 2-step tripwire, and 7-day nurture sequence — 247 qualified leads in the first month.</p>
         </div>
       </div>
-      <div class="port-card reveal">
-        <div class="port-thumb"><i class="fas fa-balance-scale"></i><div class="port-thumb-overlay"></div><div class="port-thumb-shine"></div></div>
+      <div class="port-card reveal tilt-card">
+        <div class="tilt-shine"></div>
+        <div class="port-thumb">
+          <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80&fit=crop" alt="Law Firm Client Portal" class="port-thumb-img"/>
+          <div class="port-thumb-overlay"></div>
+          <div class="port-thumb-shine"></div>
+          <div class="port-thumb-result tilt-depth-xs"><i class="fas fa-file-signature"></i> Full automation</div>
+        </div>
         <div class="port-body">
           <div class="port-badge">Lawcus Portal</div>
-          <h3>Law Firm Client Portal</h3>
+          <h3 class="tilt-depth-sm">Law Firm Client Portal</h3>
           <p>Custom Lawcus implementation with automated intake forms, document signing, and client communication dashboard.</p>
         </div>
       </div>
-      <div class="port-card reveal">
-        <div class="port-thumb"><i class="fas fa-home"></i><div class="port-thumb-overlay"></div><div class="port-thumb-shine"></div></div>
+      <div class="port-card reveal tilt-card">
+        <div class="tilt-shine"></div>
+        <div class="port-thumb">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80&fit=crop" alt="Real Estate Lead System" class="port-thumb-img"/>
+          <div class="port-thumb-overlay"></div>
+          <div class="port-thumb-shine"></div>
+          <div class="port-thumb-result tilt-depth-xs"><i class="fas fa-users"></i> Multi-agent routing</div>
+        </div>
         <div class="port-body">
           <div class="port-badge">WordPress + GHL</div>
-          <h3>Real Estate Lead System</h3>
+          <h3 class="tilt-depth-sm">Real Estate Lead System</h3>
           <p>WordPress site integrated with GHL calendars, forms, and automated lead distribution to agent teams.</p>
         </div>
       </div>
@@ -844,6 +876,51 @@ const skillObs = new IntersectionObserver(entries => {
   });
 }, { threshold:.3 });
 document.querySelectorAll('.skills-grid').forEach(el => skillObs.observe(el));
+
+/* ══ 3D TILT ENGINE ══ */
+document.querySelectorAll('.tilt-card').forEach(card => {
+  const TILT = 12; // max tilt degrees
+  const SCALE = 1.03;
+
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const cx = rect.left + rect.width  / 2;
+    const cy = rect.top  + rect.height / 2;
+    const dx = (e.clientX - cx) / (rect.width  / 2); // -1 to 1
+    const dy = (e.clientY - cy) / (rect.height / 2); // -1 to 1
+
+    const rotY =  dx * TILT;
+    const rotX = -dy * TILT;
+
+    card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${SCALE})`;
+    card.style.transition = 'transform 0.08s ease-out';
+
+    // Shine position
+    const shine = card.querySelector('.tilt-shine');
+    if (shine) {
+      const sx = ((e.clientX - rect.left) / rect.width  * 100).toFixed(1) + '%';
+      const sy = ((e.clientY - rect.top)  / rect.height * 100).toFixed(1) + '%';
+      shine.style.setProperty('--sx', sx);
+      shine.style.setProperty('--sy', sy);
+      shine.style.background = `radial-gradient(circle at ${sx} ${sy}, rgba(255,255,255,.14) 0%, transparent 60%)`;
+    }
+
+    // Also move mouse-glow for svc cards
+    card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100).toFixed(1) + '%');
+    card.style.setProperty('--my', ((e.clientY - rect.top)  / rect.height* 100).toFixed(1) + '%');
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = `perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)`;
+    card.style.transition = 'transform 0.55s cubic-bezier(.22,1,.36,1)';
+    const shine = card.querySelector('.tilt-shine');
+    if (shine) shine.style.background = '';
+  });
+
+  card.addEventListener('mouseenter', () => {
+    card.style.transition = 'transform 0.08s ease-out';
+  });
+});
 </script>
 </body>
 </html>
